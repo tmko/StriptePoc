@@ -89,7 +89,7 @@ public class StripeController {
         return map;
     }
 
-    @GetMapping("/${endpoint.checkPaymentSesssionStatus}")
+    @GetMapping("/${endpoint.checkPaymentSessionStatus}")
     public Map<String, String> checkPaymentSessionStatus(@RequestParam("session_id") String sessionId) throws StripeException {
         Session session = client.v1().checkout().sessions().retrieve(sessionId);
 
@@ -101,7 +101,7 @@ public class StripeController {
         return map;
     }
 
-    @PostMapping("/${endpoint.paymentSesssionResult}")
+    @PostMapping("/${endpoint.paymentSessionResult}")
     public ResponseEntity<?> paymentSessionResult(
             @RequestBody String payload,
             @RequestHeader("Stripe-Signature") String sigHeader) {
